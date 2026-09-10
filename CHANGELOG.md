@@ -37,4 +37,4 @@
 
 ## v0.2.4 — 2026-09-10
 - refactor: 分支命名改为 日期-v版本 格式；record_issue 撤销问题slug自动建分支
-- branch: `user/2026-09-10-record` · commit: `3d99a4a11b85a2dff77a78cda8d2f72c763e63ee`
+- branch: `user/2026-09-10-v0.2.4` · commit: `3d99a4a11b85a2dff77a78cda8d2f72c763e63ee`
