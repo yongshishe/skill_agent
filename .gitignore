@@ -19,3 +19,5 @@ docs/*
 .claude/skills/*
 !.claude/skills/business-skill-factory/
 !.claude/skills/competitor-data-collector/
+!.claude/skills/market-trend-monitor/
+!.claude/skills/product-opportunity-ranking/
