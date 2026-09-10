@@ -99,7 +99,7 @@ def main():
 
     issues = [i.strip() for i in args.issues.split(",") if i.strip()]
 
-    add_paths = [p for p in (".claude/skills", "issues", "releases", "CHANGELOG.md")
+    add_paths = [p for p in (".claude/skills", "issues", "releases", "CHANGELOG.md", "README.md")
                  if (REPO_ROOT / p).exists()]
     run(["add"] + add_paths)
     commit_msg = args.message + (f" (issues: {', '.join(issues)})" if issues else "")

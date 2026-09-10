@@ -74,11 +74,13 @@ def run_checks(records, manifest):
             "summary": f"sku_id 重复: {dup_sku}",
             "severity": "high", "status": "auto-fixable",
         })
-    urls = [r.get("source_url") for r in records if r.get("source_url")]
-    dup_url = sorted({u for u in urls if urls.count(u) > 1})
-    if dup_url:
+    # 同篇测评覆盖多品是正常的，只有「同名产品 + 同一来源」重复才算真重复
+    pairs = [(r.get("product_name"), r.get("source_url"))
+             for r in records if r.get("source_url")]
+    dup_pairs = sorted({p for p in pairs if pairs.count(p) > 1})
+    if dup_pairs:
         issues.append({
-            "summary": f"source_url 重复 {len(dup_url)} 条",
+            "summary": f"同名产品同一来源重复 {len(dup_pairs)} 条",
             "severity": "medium", "status": "auto-fixable",
         })
 
