@@ -29,3 +29,8 @@
 ## v0.2.2 — 2026-09-10
 - docs: 明确改动只进 user/* 分支、由开发者定位修改后合并 main，AI 不自动合 main
 - branch: `user/2026-09-10-record` · commit: `1b3f79c05f785235791bae2868171806cc106142`
+
+## v0.2.3 — 2026-09-10
+- fix(market-trend-monitor): 旅行包容量段分段错位，改显式分桶
+- branch: `user/2026-09-10-record` · commit: `0652a771d755d5937c6aae945984ee1a91ab978c`
+- 关联 issues: FB-20260910-002

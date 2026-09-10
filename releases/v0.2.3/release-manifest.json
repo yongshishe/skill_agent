@@ -1,0 +1,11 @@
+{
+  "release_version": "v0.2.3",
+  "git_commit": "0652a771d755d5937c6aae945984ee1a91ab978c",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T10:55:13Z",
+  "skill": "market-trend-monitor",
+  "resolved_issues": [
+    "FB-20260910-002"
+  ],
+  "message": "fix(market-trend-monitor): 旅行包容量段分段错位，改显式分桶"
+}
