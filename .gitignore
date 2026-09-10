@@ -1,0 +1,21 @@
+# 无关旧文件（用户确认从 0 开发，不纳入版本）
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+.agents/
+.codex/
+raw/
+wiki/
+.orchestra-skills.json
+skills-lock.json
+AI-Research-Skills-上手教学.md
+
+# docs 下只保留 SOP（开发文档.md），其余旧文件不纳入
+docs/*
+!docs/开发文档.md
+
+# 预置的第三方/环境 Skill 不纳入，只保留本工厂自建的 Skill
+.claude/skills/*
+!.claude/skills/business-skill-factory/
+!.claude/skills/competitor-data-collector/

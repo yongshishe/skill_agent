@@ -1,0 +1,13 @@
+{
+  "data_version": "competitor-snapshot-2026w37",
+  "category": "pet-water-fountain",
+  "source": "web_search",
+  "schema_version": "v1.0",
+  "collected_at": "2026-09-10T08:00:00Z",
+  "chunks": [
+    {
+      "file": "competitor-snapshot-2026w37/chunk-001.jsonl",
+      "record_count": 12
+    }
+  ]
+}

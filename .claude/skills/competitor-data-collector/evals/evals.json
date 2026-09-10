@@ -1,0 +1,48 @@
+{
+  "skill": "competitor-data-collector",
+  "version": "0.1.0",
+  "cases": [
+    {
+      "id": "C-001",
+      "type": "structure",
+      "name": "Skill 结构完整性",
+      "expected": "SKILL.md + 5 个 references + scripts/validate.py + evals + feedback 齐全"
+    },
+    {
+      "id": "C-002",
+      "type": "data",
+      "name": "平台正常返回 SKU 数据",
+      "expected": "字段标准化并写入 JSONL，manifest 索引 record_count 一致"
+    },
+    {
+      "id": "C-003",
+      "type": "data",
+      "name": "价格为空 / 销量格式异常",
+      "expected": "标脏数据 price_usd=null，不进入评分，不删除不补造"
+    },
+    {
+      "id": "C-004",
+      "type": "data",
+      "name": "容量单位混用 oz / L",
+      "expected": "统一归一化为 capacity_ml（1 oz ≈ 29.5735 ml）"
+    },
+    {
+      "id": "C-005",
+      "type": "scenario",
+      "name": "反爬 / 登录失效 / 页面结构变化",
+      "expected": "停止重试，记录并转 needs-developer"
+    },
+    {
+      "id": "C-006",
+      "type": "scenario",
+      "name": "样本量不足（< 5）",
+      "expected": "自检标「样本不足」，降低置信度，不阻断"
+    },
+    {
+      "id": "C-007",
+      "type": "scenario",
+      "name": "上架时间 / 销量公开渠道不可得",
+      "expected": "置 null 并标 needs-developer，不编造"
+    }
+  ]
+}
