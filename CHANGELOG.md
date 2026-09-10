@@ -25,3 +25,7 @@
 ## v0.2.1 — 2026-09-10
 - fix: release.py 纳入 .gitignore 白名单变更，补齐新 Skill 白名单
 - branch: `user/2026-09-10-record` · commit: `7f390bfd698bee7456c8eb6acda735de521dbc31`
+
+## v0.2.2 — 2026-09-10
+- docs: 明确改动只进 user/* 分支、由开发者定位修改后合并 main，AI 不自动合 main
+- branch: `user/2026-09-10-record` · commit: `1b3f79c05f785235791bae2868171806cc106142`

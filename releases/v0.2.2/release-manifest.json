@@ -1,0 +1,9 @@
+{
+  "release_version": "v0.2.2",
+  "git_commit": "1b3f79c05f785235791bae2868171806cc106142",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T09:59:33Z",
+  "skill": null,
+  "resolved_issues": [],
+  "message": "docs: 明确改动只进 user/* 分支、由开发者定位修改后合并 main，AI 不自动合 main"
+}
