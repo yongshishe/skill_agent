@@ -1,0 +1,13 @@
+{
+  "release_version": "v0.1.1",
+  "git_commit": "86e1fb5731679003ede037ff935ec7743bde4277",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T09:07:10Z",
+  "skill": "business-skill-factory",
+  "resolved_issues": [
+    "AI-20260910-001",
+    "AI-20260910-002",
+    "AI-20260910-003"
+  ],
+  "message": "feat: 问题记录与发版脚本"
+}
