@@ -25,6 +25,7 @@
 
 - **每次修复 / 发版默认 push**：`release.py` 默认 `push -u origin <branch>`，除非显式 `--no-push`。
 - **用户问题必须先落库**：用户反馈 → `record_issue.py` 存进 `issues/`（带分支 + commit），再决定是否修复；不落库不修。
+- **改动只进 `user/*` 分支，不自动合并 `main`**：`release.py` 只推 user/* 分支；遇到用户不可修的问题，开发者拉分支定位 → 修改 → 再合并 main。AI 不直接改 / 合 main。
 
 ## 开发者协作流
 
