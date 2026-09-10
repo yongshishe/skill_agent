@@ -1,0 +1,11 @@
+{
+  "release_version": "v0.1.2",
+  "git_commit": "d8954bce793d09feae9c47577bca5d2fb1c5c3e1",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T09:17:41Z",
+  "skill": "competitor-data-collector",
+  "resolved_issues": [
+    "AI-20260910-003"
+  ],
+  "message": "fix: 去重误报修复 + 补调用方案 README"
+}

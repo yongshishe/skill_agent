@@ -11,3 +11,8 @@
 - feat: 问题记录与发版脚本
 - branch: `user/2026-09-10-record` · commit: `86e1fb5731679003ede037ff935ec7743bde4277`
 - 关联 issues: AI-20260910-001, AI-20260910-002, AI-20260910-003
+
+## v0.1.2 — 2026-09-10
+- fix: 去重误报修复 + 补调用方案 README
+- branch: `user/2026-09-10-record` · commit: `d8954bce793d09feae9c47577bca5d2fb1c5c3e1`
+- 关联 issues: AI-20260910-003
