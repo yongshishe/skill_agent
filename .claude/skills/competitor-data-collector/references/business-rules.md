@@ -3,9 +3,9 @@
 ## 清洗与标准化
 
 - 币种统一换算成 `price_usd`，原始币种保留 `currency`。
-- 容量统一为 `capacity_ml`：1 oz ≈ 29.5735 ml，1 L = 1000 ml。
-- 材质归一到枚举：全不锈钢→`stainless_steel`，陶瓷→`ceramic`，塑料→`plastic`，多材质混合→`mixed`。
-- 供电归一到枚举：插电→`wired`，内置电池→`cordless`，无线水泵（线不入水）→`wireless_pump`。
+- 通用字段（`price_usd` / `rating` / `review_count`）统一归一化到顶层。
+- 类目专属字段统一放 `attributes`：容量按类目用升（`capacity_l`）或毫升（`capacity_ml`），材质/供电/面料按类目枚举，见 [data-schema.md](data-schema.md)。
+- 编辑评分（0–100）与亚马逊星级（0–5）分开：星级放顶层 `rating`，编辑评分放 `attributes.editorial_score`，不得混用。
 
 ## 数据版本
 

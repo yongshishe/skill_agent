@@ -2,7 +2,7 @@
 """把一次 Skill 修改提交到 git 分支，生成 release-manifest 并更新 CHANGELOG。
 
 用法:
-  python release.py --message "fix: price_usd 缺失" --issues FB-001,AI-002 --skill competitor-data-collector [--push]
+  python release.py --message "fix: price_usd 缺失" --issues FB-001,AI-002 --skill competitor-data-collector [--no-push]
 
 行为:
   1. 若当前在 main/master，自动新建 user/<日期>-<slug> 分支。
@@ -10,7 +10,7 @@
   3. 提交（无变更则跳过）。
   4. 生成 releases/<version>/release-manifest.json（含 git_commit、branch、issues）。
   5. 追加 CHANGELOG 版本条目并二次提交。
-  6. 若 --push 且配置了 origin，则 push -u origin <branch>。
+  6. 默认 push -u origin <branch>（除非 --no-push；未配置 origin 则跳过）。
 """
 import argparse
 import json
@@ -73,7 +73,7 @@ def main():
     ap.add_argument("--issues", default="")
     ap.add_argument("--skill", default="")
     ap.add_argument("--bump", default="patch", choices=["patch", "minor", "major"])
-    ap.add_argument("--push", action="store_true")
+    ap.add_argument("--no-push", action="store_true", help="跳过 push（默认会 push）")
     args = ap.parse_args()
 
     if not (REPO_ROOT / ".git").exists():
@@ -142,12 +142,13 @@ def main():
 
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 
-    if args.push:
+    if not args.no_push:
         remote = run(["remote", "get-url", "origin"], check=False)
         if not remote:
-            sys.exit("未配置 origin 远程，跳过 push。请先 git remote add origin <url>")
-        run(["push", "-u", "origin", branch])
-        print(f"已 push 到 origin/{branch}")
+            print("警告：未配置 origin 远程，跳过 push。")
+        else:
+            run(["push", "-u", "origin", branch])
+            print(f"已 push 到 origin/{branch}")
 
 
 if __name__ == "__main__":

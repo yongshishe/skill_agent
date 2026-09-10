@@ -1,0 +1,42 @@
+{
+  "skill": "product-opportunity-ranking",
+  "version": "0.1.0",
+  "cases": [
+    {
+      "id": "O-001",
+      "type": "structure",
+      "name": "Skill 结构完整性",
+      "expected": "SKILL.md + references + scripts/rank_opportunities.py + evals + feedback 齐全"
+    },
+    {
+      "id": "O-002",
+      "type": "data",
+      "name": "正常输入产出机会清单",
+      "expected": "每个机会含四要素，写 opportunity-list JSON"
+    },
+    {
+      "id": "O-003",
+      "type": "data",
+      "name": "竞争度可算",
+      "expected": "竞争度由价格带密度算出，低/中/高"
+    },
+    {
+      "id": "O-004",
+      "type": "scenario",
+      "name": "创新分无口径",
+      "expected": "置 needs_business 占位，不编造公式"
+    },
+    {
+      "id": "O-005",
+      "type": "scenario",
+      "name": "无现有货号目录",
+      "expected": "契合现有货号置 needs_business"
+    },
+    {
+      "id": "O-006",
+      "type": "scenario",
+      "name": "无真空带",
+      "expected": "输出空机会列表 + 红海提示，不硬造机会"
+    }
+  ]
+}

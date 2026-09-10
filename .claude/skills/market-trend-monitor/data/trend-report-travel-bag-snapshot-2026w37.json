@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-09-10T09:42:13Z",
+  "skill_version": "0.1.0",
+  "input_data_version": "travel-bag-snapshot-2026w37",
+  "category": "travel-bag",
+  "record_count": 15,
+  "load_errors": [],
+  "sections": {
+    "价格带迁移": {
+      "priced_count": 13,
+      "bands": [
+        {
+          "band": "$50-100",
+          "count": 1
+        },
+        {
+          "band": "$100-150",
+          "count": 1
+        },
+        {
+          "band": "$150-200",
+          "count": 4
+        },
+        {
+          "band": "$200-250",
+          "count": 4
+        },
+        {
+          "band": "$250-300",
+          "count": 0
+        },
+        {
+          "band": "$300-350",
+          "count": 2
+        },
+        {
+          "band": "$350-400",
+          "count": 1
+        }
+      ],
+      "gaps": [
+        "$250-300"
+      ],
+      "densest": [
+        "$150-200",
+        "$200-250"
+      ],
+      "densest_count": 4
+    },
+    "功能词热度": {
+      "top_filters": [
+        [
+          "16-inch laptop sleeve",
+          2
+        ],
+        [
+          "LightWire frame",
+          1
+        ],
+        [
+          "load lifters",
+          1
+        ],
+        [
+          "stowable harness",
+          1
+        ],
+        [
+          "1000D TPU-coated nylon",
+          1
+        ],
+        [
+          "clamshell opening",
+          1
+        ],
+        [
+          "carry-on size",
+          1
+        ],
+        [
+          "removable hip belt",
+          1
+        ],
+        [
+          "expandable 35-45L",
+          1
+        ],
+        [
+          "weatherproof",
+          1
+        ]
+      ],
+      "fabric": {
+        "nylon": 5,
+        "polyester": 2,
+        "1000D TPU-coated nylon": 1,
+        "nylon canvas": 1,
+        "900D recycled ripstop polyester": 1,
+        "recycled polyester": 1,
+        "840D ballistic polyester": 1,
+        "recycled nylon": 1,
+        "900D water-repellent polyester": 1,
+        "900D ripstop with TPU coating": 1
+      },
+      "waterproof": {
+        "不防水": 7,
+        "防水": 8
+      },
+      "capacity_segments": {
+        "35-42L": 6,
+        "45L": 4,
+        "60L+": 3,
+        "20-28L": 2
+      }
+    }
+  },
+  "warnings": []
+}

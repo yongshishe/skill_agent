@@ -24,7 +24,7 @@
       "id": "C-004",
       "type": "data",
       "name": "容量单位混用 oz / L",
-      "expected": "统一归一化为 capacity_ml（1 oz ≈ 29.5735 ml）"
+      "expected": "容量归一化到类目单位：旅行包→attributes.capacity_l，饮水机→attributes.capacity_ml（1 oz ≈ 29.5735 ml）"
     },
     {
       "id": "C-005",

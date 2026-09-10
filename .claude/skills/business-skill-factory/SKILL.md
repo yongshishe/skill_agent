@@ -60,7 +60,7 @@ description: >-
 每次 Skill 修改都走 git 分支，问题统一进中央问题库。详见 [git-release-workflow.md](references/git-release-workflow.md)。
 
 - 记录问题：`python scripts/record_issue.py --module <skill> --summary "..." --source <source> --severity <sev> [--status <status>]`
-- 提交发版：`python scripts/release.py --message "..." --issues FB-001,AI-002 [--bump patch] [--push]`
+- 提交发版：`python scripts/release.py --message "..." --issues FB-001,AI-002 [--bump patch]`（默认 push，`--no-push` 跳过）
 
 问题库在仓库根 `issues/`（pending / needs-business / needs-developer / resolved），
 release-manifest 在 `releases/<version>/`，两者通过 `git_commit` 关联，保证开发者能沿用户分支定位每一次改动。

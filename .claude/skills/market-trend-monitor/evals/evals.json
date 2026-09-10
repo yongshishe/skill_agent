@@ -1,0 +1,42 @@
+{
+  "skill": "market-trend-monitor",
+  "version": "0.1.0",
+  "cases": [
+    {
+      "id": "T-001",
+      "type": "structure",
+      "name": "Skill 结构完整性",
+      "expected": "SKILL.md + references + scripts/analyze_trends.py + evals + feedback 齐全"
+    },
+    {
+      "id": "T-002",
+      "type": "data",
+      "name": "正常输入产出三类指标",
+      "expected": "价格带迁移/功能词热度/品类热度 三节均有数据，写 trend-report JSON"
+    },
+    {
+      "id": "T-003",
+      "type": "data",
+      "name": "价格为空",
+      "expected": "null 价格不参与分桶，单独计数 priced_count"
+    },
+    {
+      "id": "T-004",
+      "type": "scenario",
+      "name": "单期无基线",
+      "expected": "只输出现状，不输出迁移方向"
+    },
+    {
+      "id": "T-005",
+      "type": "scenario",
+      "name": "样本不足 < 5",
+      "expected": "warnings 标注置信度低，不阻断"
+    },
+    {
+      "id": "T-006",
+      "type": "scenario",
+      "name": "collector 数据缺失",
+      "expected": "报错提示先采集，不编造数据"
+    }
+  ]
+}

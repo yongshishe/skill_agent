@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-09-10T09:42:15Z",
+  "skill_version": "0.1.0",
+  "input_data_version": "travel-bag-snapshot-2026w37",
+  "category": "travel-bag",
+  "record_count": 15,
+  "priced_count": 13,
+  "load_errors": [],
+  "opportunities": [
+    {
+      "target_price_band": "$50-100",
+      "incumbent_count": 1,
+      "创新分": {
+        "value": null,
+        "needs_business": true,
+        "reason": "创新分评分口径未定义，待业务确认"
+      },
+      "竞争度": "低",
+      "可解释场景": "入门性价比（价格带下沿）",
+      "契合现有货号": {
+        "value": null,
+        "needs_business": true,
+        "reason": "缺少现有货号目录，无法比对"
+      }
+    },
+    {
+      "target_price_band": "$100-150",
+      "incumbent_count": 1,
+      "创新分": {
+        "value": null,
+        "needs_business": true,
+        "reason": "创新分评分口径未定义，待业务确认"
+      },
+      "竞争度": "低",
+      "可解释场景": "主流补位（价格带中段）",
+      "契合现有货号": {
+        "value": null,
+        "needs_business": true,
+        "reason": "缺少现有货号目录，无法比对"
+      }
+    },
+    {
+      "target_price_band": "$250-300",
+      "incumbent_count": 0,
+      "创新分": {
+        "value": null,
+        "needs_business": true,
+        "reason": "创新分评分口径未定义，待业务确认"
+      },
+      "竞争度": "低",
+      "可解释场景": "主流补位（价格带中段）",
+      "契合现有货号": {
+        "value": null,
+        "needs_business": true,
+        "reason": "缺少现有货号目录，无法比对"
+      }
+    },
+    {
+      "target_price_band": "$350-400",
+      "incumbent_count": 1,
+      "创新分": {
+        "value": null,
+        "needs_business": true,
+        "reason": "创新分评分口径未定义，待业务确认"
+      },
+      "竞争度": "低",
+      "可解释场景": "高端差异化（价格带上沿）",
+      "契合现有货号": {
+        "value": null,
+        "needs_business": true,
+        "reason": "缺少现有货号目录，无法比对"
+      }
+    }
+  ],
+  "red_ocean_bands": [
+    "$150-200 (4 条)",
+    "$200-250 (4 条)"
+  ]
+}

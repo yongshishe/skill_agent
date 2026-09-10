@@ -21,6 +21,11 @@
 - `scripts/release.py` 提交改动 → 生成 `releases/<version>/release-manifest.json`（含 `git_commit`、`branch`、`resolved_issues`）→ 更新 CHANGELOG。
 - 能回答：某次改动在哪个 commit、哪个分支、改了哪些 issue、是否已 push。
 
+## 硬规则（每次修复必走）
+
+- **每次修复 / 发版默认 push**：`release.py` 默认 `push -u origin <branch>`，除非显式 `--no-push`。
+- **用户问题必须先落库**：用户反馈 → `record_issue.py` 存进 `issues/`（带分支 + commit），再决定是否修复；不落库不修。
+
 ## 开发者协作流
 
 1. 用户 push `user/*` 分支到 GitHub。
@@ -31,5 +36,5 @@
 ## push 前置条件
 
 - 先配置远程：`git remote add origin <你的 GitHub 仓库 URL>`。
-- 首次推送：`git push -u origin main`，之后 `release.py --push` 推送 user 分支。
+- 首次推送：`git push -u origin main`，之后 `release.py`（默认 push）推送 user 分支。
 - 本机未装 `gh` CLI，GitHub 操作走 git + 远端 URL（HTTPS + token 或 SSH）。
