@@ -1,0 +1,9 @@
+{
+  "release_version": "v0.2.4",
+  "git_commit": "3d99a4a11b85a2dff77a78cda8d2f72c763e63ee",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T11:02:25Z",
+  "skill": "business-skill-factory",
+  "resolved_issues": [],
+  "message": "refactor: 分支命名改为 日期-v版本 格式；record_issue 撤销问题slug自动建分支"
+}
