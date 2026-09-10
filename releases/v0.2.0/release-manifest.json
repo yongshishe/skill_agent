@@ -1,0 +1,11 @@
+{
+  "release_version": "v0.2.0",
+  "git_commit": "516498b00d8d157329638bcbf601a7de490ce82a",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T09:49:36Z",
+  "skill": null,
+  "resolved_issues": [
+    "AI-20260910-004"
+  ],
+  "message": "feat: 新增 market-trend-monitor + product-opportunity-ranking；schema v1.1 泛化旅行包格式；release 默认 push"
+}

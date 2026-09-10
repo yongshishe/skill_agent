@@ -16,3 +16,8 @@
 - fix: 去重误报修复 + 补调用方案 README
 - branch: `user/2026-09-10-record` · commit: `d8954bce793d09feae9c47577bca5d2fb1c5c3e1`
 - 关联 issues: AI-20260910-003
+
+## v0.2.0 — 2026-09-10
+- feat: 新增 market-trend-monitor + product-opportunity-ranking；schema v1.1 泛化旅行包格式；release 默认 push
+- branch: `user/2026-09-10-record` · commit: `516498b00d8d157329638bcbf601a7de490ce82a`
+- 关联 issues: AI-20260910-004
