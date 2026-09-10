@@ -18,7 +18,7 @@
 
 以「采集」为例：
 
-1. 说「采集宠物饮水机的竞品数据」。
+1. 说「采集旅行包的竞品 SKU，然后看看趋势和选品机会」。
 2. collector 读 `references/data-schema.md` 标准化字段，写 `data/<版本>/chunk-*.jsonl` + `data/manifest.json`。
 3. collector 自动跑 `scripts/validate.py` 数据自检，结果追加进 `feedback/self-review.jsonl`。
 4. 无阻断问题 → 产出标准化数据集，交给下游（聚类 / 趋势 / 机会评分）。
