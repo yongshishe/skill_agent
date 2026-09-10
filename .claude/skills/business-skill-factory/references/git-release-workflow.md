@@ -5,12 +5,12 @@
 ## 分支模型（branch-per-change）
 
 - `main`：稳定 / 已发布版本，开发者合并目标。
-- `user/<日期>-<问题标识>`：用户的每一次修改/问题开一条分支，**分支名直接标注问题**。
-  - 记录问题时 `record_issue.py` 自动创建（从 `--summary`/`--slug` 提取简短标识，如 `trend-hardcode-fields`）。
-  - 发版时 `release.py` 若仍在 main 也会用 message 派生 slug 建分支。
+- `user/<日期>-v<版本>`：每次修改/发版开一条分支，**分支名 = 日期 + 版本**（如 `user/2026-09-10-v0.2.4`），一天多次改动靠版本号区分。
+  - 分支由 `release.py` 在发版时创建（若当前在 main/master）。
+  - `record_issue.py` 只记录问题，不建分支；问题描述放在 issue 记录的 `summary` + commit message（`fix ... (issues: FB-xxx)`），不塞进分支名。
 - 每条 commit message 关联 issue 编号（如 `fix FB-001`）。
-- push 后开发者 `git fetch` + `git diff main...user/<branch>` 即可看到用户改动全貌，分支名直接告诉开发者「大概是什么问题」。
-- **记录新问题前先 `git checkout main`**，让 `record_issue.py` 为每个问题开一条干净、带标注的分支。
+- push 后开发者 `git fetch` + `git diff main...user/<branch>` 即可看到用户改动全貌。
+- **发版前先 `git checkout main`**，让 `release.py` 在 main 上按「日期-v版本」新建分支。
 
 ## 问题记录（记录优先、不即时改）
 

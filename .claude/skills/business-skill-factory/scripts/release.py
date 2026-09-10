@@ -5,7 +5,7 @@
   python release.py --message "fix: price_usd 缺失" --issues FB-001,AI-002 --skill competitor-data-collector [--no-push]
 
 行为:
-  1. 若当前在 main/master，自动新建 user/<日期>-<slug> 分支。
+  1. 若当前在 main/master，自动新建 user/<日期>-v<版本> 分支。
   2. git add 本工厂的 Skill + issues + releases + CHANGELOG。
   3. 提交（无变更则跳过）。
   4. 生成 releases/<version>/release-manifest.json（含 git_commit、branch、issues）。
@@ -80,13 +80,6 @@ def main():
         sys.exit("不是 git 仓库，先在项目根目录执行 git init")
 
     branch = current_branch()
-    if branch in ("main", "master"):
-        slug = re.sub(r"[^a-z0-9]+", "-", args.message.lower()).strip("-")[:40]
-        if not slug:
-            slug = "change"
-        branch = f"user/{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-{slug}"
-        run(["checkout", "-b", branch])
-        print(f"新建分支: {branch}")
 
     v = latest_version()
     if args.bump == "major":
@@ -96,6 +89,12 @@ def main():
     else:
         v = (v[0], v[1], v[2] + 1)
     version = f"v{v[0]}.{v[1]}.{v[2]}"
+
+    if branch in ("main", "master"):
+        date_stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        branch = f"user/{date_stamp}-{version}"
+        run(["checkout", "-b", branch])
+        print(f"新建分支: {branch}")
 
     issues = [i.strip() for i in args.issues.split(",") if i.strip()]
 

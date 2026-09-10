@@ -11,7 +11,6 @@ status: pending | auto-fixable | needs-business | needs-developer | resolved
 """
 import argparse
 import json
-import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -63,14 +62,6 @@ def now_iso():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def problem_slug(summary, explicit):
-    """从 summary 或显式 --slug 提取简短 ASCII 标识，用于分支名标注问题。"""
-    raw = explicit or summary
-    s = re.sub(r"[^a-zA-Z0-9]+", "-", raw).strip("-").lower()
-    s = re.sub(r"-{2,}", "-", s)[:40].strip("-")
-    return s or "issue"
-
-
 def next_id(prefix, date):
     n = 0
     for f in ISSUES_DIR.glob("*.jsonl"):
@@ -103,8 +94,6 @@ def main():
     ap.add_argument("--severity", default="medium", choices=["low", "medium", "high", "critical"])
     ap.add_argument("--status", default="pending", choices=list(STATUS_FILE))
     ap.add_argument("--skill-version", default="0.1.0")
-    ap.add_argument("--slug", default="",
-                    help="问题简短英文标识（kebab-case），用于分支名标注，如 trend-hardcode-fields")
     ap.add_argument("--detail", default="{}")
     args = ap.parse_args()
 
@@ -112,13 +101,6 @@ def main():
     prefix = SOURCE_PREFIX[args.source]
     issue_id = next_id(prefix, date)
     branch = git(["rev-parse", "--abbrev-ref", "HEAD"]) or "unknown"
-    slug = problem_slug(args.summary, args.slug)
-    if branch in ("main", "master", "unknown", ""):
-        new_branch = f"user/{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-{slug}"
-        if git(["checkout", "-b", new_branch]) == "":
-            git(["checkout", new_branch])
-        branch = git(["rev-parse", "--abbrev-ref", "HEAD"]) or new_branch
-        print(f"问题已落到分支: {branch}（分支名标注了问题）")
     commit = git(["rev-parse", "HEAD"]) or None
 
     try:
