@@ -1,7 +1,7 @@
 {
   "skill": "product-opportunity-ranking",
-  "latest_input": "travel-bag-snapshot-2026w37",
+  "latest_input": "travel-bag-snapshot-2026w37-v2",
   "outputs": [
-    "opportunity-list-travel-bag-snapshot-2026w37.json"
+    "opportunity-list-travel-bag-snapshot-2026w37-v2.json"
   ]
 }

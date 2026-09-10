@@ -69,28 +69,89 @@ def price_bands(records):
     }
 
 
-def feature_heat(records):
+def _capacity_seg_thermos(ml):
+    if ml < 500:
+        return "<500ml"
+    if ml < 750:
+        return "500-750ml"
+    if ml < 1000:
+        return "750-1000ml"
+    return "1000ml+"
+
+
+def _capacity_seg_bag(l):
+    if l <= 28:
+        return "≤28L"
+    if l <= 34:
+        return "29-34L"
+    if l <= 42:
+        return "35-42L"
+    if l <= 45:
+        return "43-45L"
+    return "46L+"
+
+
+def feature_heat(records, category):
     filter_counter = Counter()
-    fabric_counter = Counter()
-    waterproof_counter = Counter()
-    capacity_counter = Counter()
     for r in records:
         for f in r.get("filters") or []:
             filter_counter[f] += 1
-        a = r.get("attributes") or {}
-        if a.get("material_fabric"):
-            fabric_counter[a["material_fabric"]] += 1
-        if "waterproof" in a:
-            waterproof_counter["防水" if a["waterproof"] else "不防水"] += 1
-        if a.get("capacity_l"):
-            cap = a["capacity_l"]
-            seg = "20-28L" if cap <= 28 else ("35-42L" if cap <= 42 else ("45L" if cap <= 45 else "60L+"))
-            capacity_counter[seg] += 1
+
+    result = {"top_filters": filter_counter.most_common(10)}
+
+    if category == "thermos":
+        material_counter = Counter()
+        lid_counter = Counter()
+        leak_counter = Counter()
+        capacity_counter = Counter()
+        hot_hours, cold_hours = [], []
+        for r in records:
+            a = r.get("attributes") or {}
+            if a.get("material"):
+                material_counter[a["material"]] += 1
+            if a.get("lid_type"):
+                lid_counter[a["lid_type"]] += 1
+            if a.get("leak_proof") is not None:
+                leak_counter["防漏" if a["leak_proof"] else "不防漏"] += 1
+            if a.get("capacity_ml"):
+                capacity_counter[_capacity_seg_thermos(a["capacity_ml"])] += 1
+            if a.get("hot_retention_hours"):
+                hot_hours.append(a["hot_retention_hours"])
+            if a.get("cold_retention_hours"):
+                cold_hours.append(a["cold_retention_hours"])
+        result["material"] = dict(material_counter.most_common())
+        result["lid_type"] = dict(lid_counter.most_common())
+        result["leak_proof"] = dict(leak_counter)
+        result["capacity_segments"] = dict(capacity_counter.most_common())
+        result["hot_retention_hours"] = _stats(hot_hours)
+        result["cold_retention_hours"] = _stats(cold_hours)
+    else:
+        fabric_counter = Counter()
+        waterproof_counter = Counter()
+        capacity_counter = Counter()
+        for r in records:
+            a = r.get("attributes") or {}
+            if a.get("material_fabric"):
+                fabric_counter[a["material_fabric"]] += 1
+            if a.get("waterproof") is not None:
+                waterproof_counter["防水" if a["waterproof"] else "不防水"] += 1
+            if a.get("capacity_l"):
+                capacity_counter[_capacity_seg_bag(a["capacity_l"])] += 1
+        result["fabric"] = dict(fabric_counter.most_common())
+        result["waterproof"] = dict(waterproof_counter)
+        result["capacity_segments"] = dict(capacity_counter.most_common())
+
+    return result
+
+
+def _stats(vals):
+    if not vals:
+        return {"count": 0, "min": None, "max": None, "avg": None}
     return {
-        "top_filters": filter_counter.most_common(10),
-        "fabric": dict(fabric_counter.most_common()),
-        "waterproof": dict(waterproof_counter),
-        "capacity_segments": dict(capacity_counter.most_common()),
+        "count": len(vals),
+        "min": min(vals),
+        "max": max(vals),
+        "avg": round(sum(vals) / len(vals), 1),
     }
 
 
@@ -112,7 +173,7 @@ def main():
         "load_errors": load_errors,
         "sections": {
             "价格带迁移": price_bands(records),
-            "功能词热度": feature_heat(records),
+            "功能词热度": feature_heat(records, manifest.get("category")),
         },
         "warnings": [],
     }

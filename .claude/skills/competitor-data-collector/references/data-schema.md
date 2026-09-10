@@ -49,6 +49,19 @@
 | `power` | string | 供电：`wired` / `cordless` / `wireless_pump` |
 | `noise_db` | number | 噪音（分贝） |
 
+### 保温杯 / 保温杯（thermos / insulated-tumbler）
+
+| 字段 | 类型 | 说明 |
+|---|---|---|
+| `capacity_ml` | number | 容量（毫升），由 oz 换算（1 oz ≈ 29.57 ml） |
+| `material` | string | 材质：`stainless_steel` / `ceramic_coated` / `titanium` / `glass` / `plastic` / `mixed` |
+| `insulation_type` | string | 保温结构：`vacuum_double_wall` / `vacuum` / `foam` / `none` |
+| `hot_retention_hours` | number | 保温时长（热饮，小时），公开测评口径，缺失 null |
+| `cold_retention_hours` | number | 保冷时长（冷饮，小时），缺失 null |
+| `lid_type` | string | 杯盖类型：`straw` / `flip` / `screw` / `press` / `autoseal` / `magslider` |
+| `leak_proof` | boolean | 是否防漏 |
+| `dishwasher_safe` | boolean | 是否可洗碗机，未知 null |
+
 ## 约束
 
 - 数值字段统一归一化（币种→USD；容量按类目单位进 `attributes`）。

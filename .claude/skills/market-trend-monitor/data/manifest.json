@@ -1,7 +1,7 @@
 {
   "skill": "market-trend-monitor",
-  "latest_input": "travel-bag-snapshot-2026w37",
+  "latest_input": "thermos-snapshot-2026w37",
   "outputs": [
-    "trend-report-travel-bag-snapshot-2026w37.json"
+    "trend-report-thermos-snapshot-2026w37.json"
   ]
 }

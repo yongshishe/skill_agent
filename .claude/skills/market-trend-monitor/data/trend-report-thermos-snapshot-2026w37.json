@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-09-10T10:48:05Z",
+  "skill_version": "0.1.0",
+  "input_data_version": "thermos-snapshot-2026w37",
+  "category": "thermos",
+  "record_count": 17,
+  "load_errors": [],
+  "sections": {
+    "价格带迁移": {
+      "priced_count": 12,
+      "bands": [
+        {
+          "band": "$0-50",
+          "count": 12
+        }
+      ],
+      "gaps": [],
+      "densest": [
+        "$0-50"
+      ],
+      "densest_count": 12
+    },
+    "功能词热度": {
+      "top_filters": [
+        [
+          "leakproof",
+          5
+        ],
+        [
+          "lightweight",
+          3
+        ],
+        [
+          "one-handed",
+          3
+        ],
+        [
+          "handle",
+          2
+        ],
+        [
+          "MagSlider lid",
+          2
+        ],
+        [
+          "double-wall vacuum",
+          2
+        ],
+        [
+          "18/8 stainless steel",
+          2
+        ],
+        [
+          "TempShield insulation",
+          2
+        ],
+        [
+          "powder coat",
+          2
+        ],
+        [
+          "24h cold retention",
+          2
+        ]
+      ],
+      "material": {
+        "stainless_steel": 17
+      },
+      "lid_type": {
+        "flip": 5,
+        "screw": 4,
+        "straw": 3,
+        "autoseal": 3,
+        "magslider": 2
+      },
+      "leak_proof": {
+        "防漏": 13,
+        "不防漏": 4
+      },
+      "capacity_segments": {
+        "<500ml": 8,
+        "500-750ml": 5,
+        "1000ml+": 2,
+        "750-1000ml": 2
+      },
+      "hot_retention_hours": {
+        "count": 10,
+        "min": 5,
+        "max": 10,
+        "avg": 6.2
+      },
+      "cold_retention_hours": {
+        "count": 3,
+        "min": 24,
+        "max": 24,
+        "avg": 24.0
+      }
+    }
+  },
+  "warnings": []
+}

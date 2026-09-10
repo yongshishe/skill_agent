@@ -45,10 +45,10 @@
 ## 五、命令速查
 
 ```bash
-# 记录一条问题（不修改）
+# 记录一条问题（不修改；会自动开 user/<日期>-<问题> 分支，分支名标注问题）
 python .claude/skills/business-skill-factory/scripts/record_issue.py \
   --module competitor-data-collector --summary "价格带错了" \
-  --source user_feedback --severity medium [--status needs-developer]
+  --source user_feedback --severity medium --slug price-band-wrong [--status needs-developer]
 
 # 数据自检
 python .claude/skills/competitor-data-collector/scripts/validate.py
