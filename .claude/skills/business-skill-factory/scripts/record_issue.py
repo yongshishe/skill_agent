@@ -22,7 +22,7 @@ def _repo_root():
     try:
         out = subprocess.run(
             ["git", "-C", str(Path(__file__).resolve().parent), "rev-parse", "--show-toplevel"],
-            capture_output=True, text=True, check=True,
+            capture_output=True, text=True, encoding="utf-8", errors="replace", check=True,
         ).stdout.strip()
         return Path(out)
     except Exception:
@@ -52,7 +52,7 @@ def git(cmd):
     try:
         return subprocess.run(
             ["git", "-C", str(REPO_ROOT)] + cmd,
-            capture_output=True, text=True, check=True,
+            capture_output=True, text=True, encoding="utf-8", errors="replace", check=True,
         ).stdout.strip()
     except Exception:
         return ""

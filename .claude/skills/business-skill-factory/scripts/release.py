@@ -40,7 +40,9 @@ CHANGELOG = REPO_ROOT / "CHANGELOG.md"
 
 
 def run(cmd, check=True):
-    r = subprocess.run(["git", "-C", str(REPO_ROOT)] + cmd, capture_output=True, text=True)
+    r = subprocess.run(["git", "-C", str(REPO_ROOT)] + cmd,
+                       capture_output=True, text=True,
+                       encoding="utf-8", errors="replace")
     if check and r.returncode != 0:
         sys.stderr.write(r.stderr)
         sys.exit(r.returncode)
