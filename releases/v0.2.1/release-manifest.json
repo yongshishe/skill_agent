@@ -1,0 +1,9 @@
+{
+  "release_version": "v0.2.1",
+  "git_commit": "7f390bfd698bee7456c8eb6acda735de521dbc31",
+  "branch": "user/2026-09-10-record",
+  "released_at": "2026-09-10T09:50:20Z",
+  "skill": null,
+  "resolved_issues": [],
+  "message": "fix: release.py 纳入 .gitignore 白名单变更，补齐新 Skill 白名单"
+}

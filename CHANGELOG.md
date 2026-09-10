@@ -21,3 +21,7 @@
 - feat: 新增 market-trend-monitor + product-opportunity-ranking；schema v1.1 泛化旅行包格式；release 默认 push
 - branch: `user/2026-09-10-record` · commit: `516498b00d8d157329638bcbf601a7de490ce82a`
 - 关联 issues: AI-20260910-004
+
+## v0.2.1 — 2026-09-10
+- fix: release.py 纳入 .gitignore 白名单变更，补齐新 Skill 白名单
+- branch: `user/2026-09-10-record` · commit: `7f390bfd698bee7456c8eb6acda735de521dbc31`
