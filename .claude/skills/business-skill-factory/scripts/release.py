@@ -80,6 +80,8 @@ def main():
     branch = current_branch()
     if branch in ("main", "master"):
         slug = re.sub(r"[^a-z0-9]+", "-", args.message.lower()).strip("-")[:40]
+        if not slug:
+            slug = "change"
         branch = f"user/{datetime.now(timezone.utc).strftime('%Y-%m-%d')}-{slug}"
         run(["checkout", "-b", branch])
         print(f"新建分支: {branch}")
@@ -95,7 +97,8 @@ def main():
 
     issues = [i.strip() for i in args.issues.split(",") if i.strip()]
 
-    add_paths = [".claude/skills", "issues", "releases", "CHANGELOG.md"]
+    add_paths = [p for p in (".claude/skills", "issues", "releases", "CHANGELOG.md")
+                 if (REPO_ROOT / p).exists()]
     run(["add"] + add_paths)
     commit_msg = args.message + (f" (issues: {', '.join(issues)})" if issues else "")
     if run(["diff", "--cached", "--name-only"], check=False):
@@ -130,7 +133,8 @@ def main():
     with CHANGELOG.open("a", encoding="utf-8") as f:
         f.write(entry)
 
-    run(["add"] + add_paths)
+    rel_add = [p for p in ("releases", "CHANGELOG.md") if (REPO_ROOT / p).exists()]
+    run(["add"] + rel_add)
     if run(["diff", "--cached", "--name-only"], check=False):
         run(["commit", "-m", f"release: {version} manifest & changelog"])
 
